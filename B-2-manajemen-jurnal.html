@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen Jurnal - Sistem Jurnal</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <!-- Sidebar Offcanvas (Mobile) -->
+      <div
+        class="offcanvas offcanvas-start bg-dark text-white"
+        tabindex="-1"
+        id="sidebarMobile"
+      >
+        <div class="offcanvas-header flex-column">
+          <div class="logo-container mb-2 w-20 text-center align-items-center">
+            <img src="logo.png" alt="Logo" class="logo" />
+          </div>
+          <div class="d-flex justify-content-between w-100 align-items-center">
+            <h5 class="offcanvas-title mb-0">Menu</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+
+        <div class="offcanvas-body p-0">
+          <ul class="list-unstyled ps-3">
+            <li>
+              <a href="0-dashboard.html" class="text-white d-block py-2"
+                ><i class="fas fa-home me-2"></i>Dashboard</a
+              >
+            </li>
+            <li>
+              <a href="1-jurnal.html" class="text-white d-block py-2"
+                ><i class="fas fa-book me-2"></i>Data Jurnal</a
+              >
+            </li>
+            <li>
+              <a href="2-pengaturan.html" class="text-white d-block py-2"
+                ><i class="fas fa-cog me-2"></i>Pengaturan</a
+              >
+            </li>
+            <li>
+              <a href="index.html" class="text-white d-block py-2"
+                ><i class="fas fa-sign-out-alt me-2"></i>Keluar</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sidebar Desktop -->
+      <div
+        class="sidebar d-none d-md-block bg-dark text-white p-3 position-fixed"
+      >
+        <div class="logo-container">
+          <img src="logo.png" alt="Logo" class="logo" />
+        </div>
+        <ul class="list-unstyled">
+          <li>
+            <a href="0-dashboard.html" class="text-white d-block py-2"
+              ><i class="fas fa-home me-2"></i>Dashboard</a
+            >
+          </li>
+          <li>
+            <a href="1-jurnal.html" class="text-white d-block py-2"
+              ><i class="fas fa-book me-2"></i>Data Jurnal</a
+            >
+          </li>
+          <li>
+            <a href="2-pengaturan.html" class="text-white d-block py-2"
+              ><i class="fas fa-cog me-2"></i>Pengaturan</a
+            >
+          </li>
+          <li>
+            <a href="index.html" class="text-white d-block py-2"
+              ><i class="fas fa-sign-out-alt me-2"></i>Keluar</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content p-4">
+      <div
+        class="header d-flex justify-content-center align-items-center mb-4 position-relative"
+      >
+        <!-- Tombol Burger (mobile) -->
+        <div class="d-md-none position-absolute start-0">
+          <button
+            class="btn btn-outline-dark"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebarMobile"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Judul di Tengah -->
+        <h1 class="m-0 text-center">Manajemen Jurnal</h1>
+      </div>
+
+      <!-- Search & Add -->
+      <div class="row g-2 align-items-end mb-3">
+        <div class="col-md-8">
+          <label class="form-label">Pencarian</label>
+          <input
+            id="searchInput"
+            type="text"
+            class="form-control"
+            placeholder="Cari Jurnal..."
+            onkeyup="filterTable()"
+          />
+        </div>
+
+        <div class="col-md-4 text-end">
+          <button
+            class="btn btn-add w-100"
+            data-bs-toggle="modal"
+            data-bs-target="#modalJurnal"
+          >
+            <i class="fas fa-plus me-2"></i>Tambah Jurnal
+          </button>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-responsive">
+        <table
+          class="table table-bordered table-hover text-center align-middle"
+          id="jurnalTable"
+        >
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama Jurnal</th>
+              <th>Singkatan</th>
+              <th>ISSN Print</th>
+              <th>ISSN Online</th>
+              <th>Bidang</th>
+              <th>Bidang Ilmu</th>
+              <th>Sinta</th>
+              <th>Scopus</th>
+              <th>Penerbit</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Jurnal Informatika Nusantara</td>
+              <td>JIN</td>
+              <td>1234-5678</td>
+              <td>9876-5432</td>
+              <td>Penelitian</td>
+              <td>Teknik Informatika</td>
+              <td>Sinta 2</td>
+              <td>Q3</td>
+              <td>Fakultas Ilmu Komputer</td>
+              <td>
+                <a href="#" class="p-1 m-1 btn btn-sm-1 w-100">Edit</a>
+                <a href="#" class="p-1 m-1 btn btn-sm-2 w-100">Hapus</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jurnal Pendidikan Abadi</td>
+              <td>JPA</td>
+              <td>1122-3344</td>
+              <td>9988-7766</td>
+              <td>Pengabdian</td>
+              <td>Pendidikan</td>
+              <td>Non-Sinta</td>
+              <td>-</td>
+              <td>Universitas Pendidikan</td>
+              <td>
+                <a href="#" class="p-1 m-1 btn btn-sm-1 w-100">Edit</a>
+                <a href="#" class="p-1 m-1 btn btn-sm-2 w-100">Hapus</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="modalJurnal"
+        tabindex="-1"
+        aria-labelledby="modalJurnalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalJurnalLabel">Tambah Jurnal</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Tutup"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="formJurnal">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Nama Jurnal</label>
+                    <input type="text" class="form-control" required />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Singkatan</label>
+                    <input type="text" class="form-control" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">ISSN Print</label>
+                    <input type="text" class="form-control" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">ISSN Online</label>
+                    <input type="text" class="form-control" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Bidang</label>
+                    <select class="form-select">
+                      <option>Penelitian</option>
+                      <option>Pengabdian</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Bidang Ilmu</label>
+                    <select class="form-select">
+                      <option>Teknik Informatika</option>
+                      <option>Pendidikan</option>
+                      <option>Kesehatan</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Akreditasi Sinta</label>
+                    <select class="form-select">
+                      <option>Tidak Terakreditasi</option>
+                      <option>Sinta 1</option>
+                      <option>Sinta 2</option>
+                      <option>Sinta 3</option>
+                      <option>Sinta 4</option>
+                      <option>Sinta 5</option>
+                      <option>Sinta 6</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Scopus Index</label>
+                    <select class="form-select">
+                      <option>-</option>
+                      <option>Q1</option>
+                      <option>Q2</option>
+                      <option>Q3</option>
+                      <option>Q4</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    <label class="form-label">Penerbit</label>
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-add w-100" form="formJurnal">
+                Simpan
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function filterTable() {
+        const input = document.getElementById("searchInput");
+        const filter = input.value.toLowerCase();
+        const table = document.getElementById("jurnalTable");
+        const rows = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < rows.length; i++) {
+          const cell = rows[i].getElementsByTagName("td")[1]; // Nama Jurnal
+          if (cell) {
+            const txtValue = cell.textContent || cell.innerText;
+            rows[i].style.display = txtValue.toLowerCase().includes(filter)
+              ? ""
+              : "none";
+          }
+        }
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
