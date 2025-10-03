@@ -3,127 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Halaman Masuk</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --warna0: white;
+        --warna1: black;
+        --warna2: #3e5f44;
+        --warna3: #5e936c;
+        --warna4: #93da97;
+        --warna6: #e8ffd7;
+        --warna5: #fff4e0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: var(--warna5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .login-container {
+        text-align: center;
+        padding: 20px;
+        background-color: var(--warna0);
+        border: 2px solid var(--warna3);
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 100%;
+      }
+
+      .logo {
+        width: 250px;
+        margin-bottom: 20px;
+      }
+    </style>
   </head>
-  <style>
-    :root {
-      --warna0: white;
-
-      --warna1: black;
-
-      --warna2: #753422;
-      --warna3: #b05b3b;
-      --warna4: #d79771;
-      --warna5: #ffebc9;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: var(--warna5);
-      color: var(--warna1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .login-container {
-      width: 100%;
-      max-width: 400px;
-      padding: 20px;
-      background-color: var(--warna0);
-      border: 2px solid var(--warna3);
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .login-title {
-      font-size: 2rem;
-      color: var(--warna2);
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-size: 1rem;
-      color: var(--warna3);
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      font-size: 1rem;
-      border: 1px solid var(--warna4);
-      border-radius: 4px;
-      background-color: var(--warna0);
-      color: var(--warna0);
-    }
-
-    input[type="text"]:focus,
-    input[type="password"]:focus {
-      border-color: var(--warna2);
-      outline: none;
-    }
-
-    .btn-login {
-      display: block;
-      text-align: center;
-      width: 100%;
-      padding: 10px;
-      font-size: 1rem;
-      color: var(--warna0);
-      background-color: var(--warna2);
-      border-radius: 4px;
-      text-decoration: none;
-      margin-top: 10px;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn-login:hover {
-      background-color: var(--warna3);
-    }
-  </style>
   <body>
-    <div class="login-container">
-      <div class="login-box">
-        <h1 class="login-title">Login</h1>
-        <form action="#" method="POST">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Masukkan username"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Masukkan password"
-              required
-            />
-          </div>
-        </form>
-        <a href="0-dashboard.html" class="btn-login">Login</a>
+    <main>
+      <div class="login-container">
+        <!-- Logo -->
+        <img src="logo.png" alt="Logo" class="logo" />
+
+        <!-- Tombol Masuk -->
+        <div class="btn-group w-100" role="group" aria-label="Basic example">
+          <button
+            onclick="window.location.href='login.html'"
+            type="button"
+            class="btn btn-sm-1"
+          >
+            Sing In
+          </button>
+          <button
+            onclick="window.location.href='0-dashboard.html'"
+            type="button"
+            class="btn btn-add"
+          >
+            Masuk
+          </button>
+          <button
+            onclick="window.location.href='register.html'"
+            type="button"
+            class="btn btn-sm-2"
+          >
+            Sing Up
+          </button>
+        </div>
       </div>
-    </div>
+    </main>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </html>
