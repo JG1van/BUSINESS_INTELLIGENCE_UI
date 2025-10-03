@@ -1,10 +1,10 @@
 :root {
     --warna0: white;
     --warna1: black;
-    --warna2: #753422;
-    --warna3: #B05B3B;
-    --warna4: #D79771;
-    --warna6: #FFEBC9;
+    --warna2: #3E5F44;
+    --warna3: #5E936C;
+    --warna4: #93DA97;
+    --warna6: #E8FFD7;
 
 
     --warna5: #FFF4E0;
@@ -32,7 +32,7 @@
 }
 
 .logo {
-    width: 150px;
+    width: 200px;
     height: auto;
 }
 
