@@ -200,95 +200,208 @@
       </div>
 
       <!-- Modal -->
-      <div
-        class="modal fade"
-        id="modalJurnal"
-        tabindex="-1"
-        aria-labelledby="modalJurnalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalJurnalLabel">Tambah Jurnal</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Tutup"
-              ></button>
+  <div
+  class="modal fade"
+  id="modalJurnal"
+  tabindex="-1"
+  aria-labelledby="modalJurnalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="modalJurnalLabel">Tambah Jurnal</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Tutup"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <form id="formJurnal" action="#" method="POST">
+          <div class="row g-3">
+            <!-- Nama dan Singkatan -->
+            <div class="col-md-6">
+              <label class="form-label">Nama Jurnal</label>
+              <input
+                type="text"
+                name="nama_jurnal"
+                class="form-control"
+                placeholder="Masukkan nama jurnal lengkap"
+                required
+              />
             </div>
-            <div class="modal-body">
-              <form id="formJurnal">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label class="form-label">Nama Jurnal</label>
-                    <input type="text" class="form-control" required />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">Singkatan</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">ISSN Print</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">ISSN Online</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">Bidang</label>
-                    <select class="form-select">
-                      <option>Penelitian</option>
-                      <option>Pengabdian</option>
-                    </select>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">Bidang Ilmu</label>
-                    <select class="form-select">
-                      <option>Teknik Informatika</option>
-                      <option>Pendidikan</option>
-                      <option>Kesehatan</option>
-                    </select>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">Akreditasi Sinta</label>
-                    <select class="form-select">
-                      <option>Tidak Terakreditasi</option>
-                      <option>Sinta 1</option>
-                      <option>Sinta 2</option>
-                      <option>Sinta 3</option>
-                      <option>Sinta 4</option>
-                      <option>Sinta 5</option>
-                      <option>Sinta 6</option>
-                    </select>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">Scopus Index</label>
-                    <select class="form-select">
-                      <option>-</option>
-                      <option>Q1</option>
-                      <option>Q2</option>
-                      <option>Q3</option>
-                      <option>Q4</option>
-                    </select>
-                  </div>
-                  <div class="col-md-12">
-                    <label class="form-label">Penerbit</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                </div>
-              </form>
+            <div class="col-md-6">
+              <label class="form-label">Singkatan Jurnal</label>
+              <input
+                type="text"
+                name="singkatan_jurnal"
+                class="form-control"
+                placeholder="Masukkan singkatan jurnal"
+              />
             </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-add w-100" form="formJurnal">
-                Simpan
-              </button>
+
+            <!-- Link Jurnal -->
+            <div class="col-md-12">
+              <label class="form-label">Link Jurnal</label>
+              <input
+                type="url"
+                name="link_jurnal"
+                class="form-control"
+                placeholder="https://contoh-jurnal.com"
+                required
+              />
+            </div>
+
+            <!-- ISSN -->
+            <div class="col-md-6">
+              <label class="form-label">ISSN Print</label>
+              <input
+                type="text"
+                name="issn_print"
+                class="form-control"
+                placeholder="Masukkan ISSN cetak"
+              />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">ISSN Online</label>
+              <input
+                type="text"
+                name="issn_online"
+                class="form-control"
+                placeholder="Masukkan ISSN elektronik"
+              />
+            </div>
+
+            <!-- Bidang & Bidang Ilmu -->
+            <div class="col-md-6">
+              <label class="form-label">Bidang</label>
+              <select name="bidang" class="form-select" required>
+                <option value="">-- Pilih Bidang --</option>
+                <option value="Penelitian">Penelitian</option>
+                <option value="Pengabdian">Pengabdian</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Bidang Ilmu</label>
+              <select name="id_bidang_ilmu" class="form-select" required>
+                <option value="">-- Pilih Bidang Ilmu --</option>
+                <option value="1">Teknik Informatika</option>
+                <option value="2">Pendidikan</option>
+                <option value="3">Kesehatan</option>
+              </select>
+            </div>
+
+            <!-- Akreditasi -->
+            <div class="col-md-6">
+              <label class="form-label">Akreditasi Sinta</label>
+              <select name="akreditasi_sinta" class="form-select" required>
+                <option value="">-- Pilih Akreditasi --</option>
+                <option value="Tidak Terakreditasi">Tidak Terakreditasi</option>
+                <option value="Sinta 1">Sinta 1</option>
+                <option value="Sinta 2">Sinta 2</option>
+                <option value="Sinta 3">Sinta 3</option>
+                <option value="Sinta 4">Sinta 4</option>
+                <option value="Sinta 5">Sinta 5</option>
+                <option value="Sinta 6">Sinta 6</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Aktif Sinta (contoh: 2020-2024)</label>
+              <input
+                type="text"
+                name="aktif_sinta"
+                class="form-control"
+                placeholder="Masukkan masa aktif Sinta"
+              />
+            </div>
+
+            <!-- Scopus -->
+            <div class="col-md-6">
+              <label class="form-label">Scopus Index</label>
+              <select name="scopus_index" class="form-select">
+                <option value="">-</option>
+                <option value="Q1">Q1</option>
+                <option value="Q2">Q2</option>
+                <option value="Q3">Q3</option>
+                <option value="Q4">Q4</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Masa Aktif Scopus (contoh: 2025)</label>
+              <input
+                type="number"
+                name="masa_aktif_scopus"
+                class="form-control"
+                min="2000"
+                max="2100"
+              />
+            </div>
+
+            <!-- Akreditasi Lain -->
+            <div class="col-md-12">
+              <label class="form-label">Akreditasi Lain</label>
+              <input
+                type="text"
+                name="akreditasi_lain"
+                class="form-control"
+                placeholder="Contoh: DOAJ, Copernicus"
+              />
+            </div>
+
+            <!-- Penerbit -->
+            <div class="col-md-6">
+              <label class="form-label">Penerbit</label>
+              <input
+                type="text"
+                name="penerbit"
+                class="form-control"
+                placeholder="Nama lembaga/fakultas penerbit"
+              />
+            </div>
+
+            <!-- Tahun & Lokasi Terbit -->
+            <div class="col-md-3">
+              <label class="form-label">Tahun Terbit</label>
+              <input
+                type="number"
+                name="tahun_terbit"
+                class="form-control"
+                min="1900"
+                max="2100"
+                placeholder="YYYY"
+              />
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Lokasi Terbit</label>
+              <input
+                type="text"
+                name="lokasi_terbit"
+                class="form-control"
+                placeholder="Kota atau provinsi"
+              />
             </div>
           </div>
-        </div>
+        </form>
       </div>
+
+      <div class="modal-footer">
+        <button
+          type="submit"
+          class="btn btn-success w-100"
+          form="formJurnal"
+        >
+          Simpan Data Jurnal
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
     </main>
 
     <script>
